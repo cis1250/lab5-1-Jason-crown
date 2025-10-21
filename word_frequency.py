@@ -24,3 +24,41 @@ def is_sentence(text):
         return False
 
     return True
+
+def get_sentence():
+    while True:
+        s = input("Enter a sentence: ").strip()
+        if is_sentence(s):
+            return s
+        print("Must start with a capital and end with . ! or ?")
+
+def calculate_frequencies(sentence):
+    # remove final punctuation, lowercase, split into words
+    words = sentence[:-1].lower().split() # Drops last value from the array, makes it lowercase, then splits it into words.
+    word_list = []
+    freq_list = []
+    #loops thorugh all the words than adds 1 for each time it finds it in the array
+    for w in words:
+        if w in word_list:
+            i = word_list.index(w)
+            freq_list[i] += 1
+        else:
+            word_list.append(w)
+            freq_list.append(1)
+    return word_list, freq_list
+
+# This prints the words and their frequencys  
+def print_frequencies(words, freqs):
+    print("\nWord Frequencies:")
+    for i in range(len(words)):
+        print(words[i], ":", freqs[i])
+
+# Feeds the values through the functions  
+def main():
+    s = get_sentence()
+    words, freqs = calculate_frequencies(s)
+    print_frequencies(words, freqs)
+
+# this makes sure that main is only run when wanted and not when imported 
+ if __name__ == "__main__":
+    main()
