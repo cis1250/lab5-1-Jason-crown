@@ -25,9 +25,10 @@ def is_sentence(text):
 
     return True
 
+# gets the sentice with an input form the users then strips it. 
 def get_sentence():
     while True:
-        s = input("Enter a sentence: ").strip()
+        s = input("Enter a sentence: ").strip() # I made sure to strip it just incase of \n or any types of \0
         if is_sentence(s):
             return s
         print("Must start with a capital and end with . ! or ?")
