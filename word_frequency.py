@@ -60,6 +60,4 @@ def main():
     words, freqs = calculate_frequencies(s)
     print_frequencies(words, freqs)
 
-# this makes sure that main is only run when wanted and not when imported 
- if __name__ == "__main__":
-    main()
+main()
